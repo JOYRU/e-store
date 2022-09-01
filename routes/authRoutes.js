@@ -19,4 +19,23 @@ router.post('/register',async(req,res) =>{
     return res.render('register',{message:'Registration Successful'})
 })
 
+router.get('/login',(req,res) =>{
+
+
+    return res.render('login',{message:null})
+})
+
+router.post('/login',(req,res,next) =>{
+req.user = 'Guests'
+next()
+
+},
+(req,res) =>{
+    console.log(req.user)
+ 
+ 
+     return res.render('login',{message:'Login successful'})
+ })
+
+
 module.exports = router ;
